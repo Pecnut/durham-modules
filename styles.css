@@ -1,0 +1,93 @@
+:root {
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1; /* fix for Chrome */
+}
+@supports (font-variation-settings: normal) {
+  :root { font-family: InterVariable, sans-serif; }
+}
+
+body {
+    font-family: Inter, Arial, sans-serif;
+    background: #f5f5f5;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 32px;
+}
+
+.tile {
+    background: #fff;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    width: 220px;
+    cursor: pointer;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    margin-bottom: 8px;
+    position: relative;
+    /* For tick positioning */
+}
+
+.tile.completed {
+    border-color: #4caf50;
+    background: #e8f5e9;
+    width: 220px;
+    border-width: 3px;
+    padding: 15px;
+}
+
+/* .tile.available { border-color: #ffe082; background: #fff9c488; } */
+.tile.available {
+    border-color: #2196f3;
+    background: #e3f2fd55;
+}
+
+.tile.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.level-title {
+    width: 100%;
+    font-weight: bold;
+    margin: 24px 0 8px 0;
+}
+
+.tick {
+    position: absolute;
+    top: 8px;
+    right: 12px;
+    font-size: 1.5em;
+    color: #43a047;
+    pointer-events: none;
+    user-select: none;
+}
+
+.column-label {
+    position: absolute;
+    bottom: 8px;
+    right: 12px;
+    font-size: small;
+    color: #888;
+    /* background: #fffbe7; */
+    /* border-radius: 100%; */
+    /* padding: 2px 8px; */
+    /* border: 1px solid #ffe082; */
+    pointer-events: none;
+    user-select: none;
+    font-feature-settings: "ss05"
+}
+
+.circled {
+    font-feature-settings: "ss05";
+    font-size: small;
+    font-weight: 500;
+}
+
+.column-info{
+    font-weight:normal;
+}

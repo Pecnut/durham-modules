@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematics modules</title>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>Durham mathematics programme modules, post-reform</h1>
+    <div id="modules" class="container"></div>
+
+    <script>
+        let modules = [];
+        let completed = new Set();
+
+        // Fetch modules data from external JSON
+        fetch('modules.json')
+            .then(response => response.json())
+            .then(data => {
+                modules = data;
+                renderModules();
+            });
+
+        function renderModules() {
+            const container = document.getElementById('modules');
+            container.innerHTML = '';
+
+            // Group by level
+            const levels = [...new Set(modules.map(m => m.level))].sort();
+            levels.forEach(level => {
+                const levelTitle = document.createElement('div');
+                levelTitle.className = 'level-title';
+                levelTitle.textContent = `Level ${level}`;
+                if (level >= 3) {
+                    levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
+                }
+                container.appendChild(levelTitle);
+
+                // Sort modules by code before displaying
+                modules
+                    .filter(m => m.level === level)
+                    .sort((a, b) => a.code.localeCompare(b.code))
+                    .forEach(module => {
+                        const tile = document.createElement('div');
+                        tile.className = 'tile';
+
+                        // Sort prerequisites by code, then map to names
+                        let prereqNames = [...module.prerequisites]
+                            .sort()
+                            .map(code => {
+                                const mod = modules.find(m => m.code === code);
+                                if (!mod) return code;
+                                // Replace only the last space with a non-breaking space
+                                return mod.name.replace(/ (\S+)$/, '\u00A0$1');
+                            });
+
+                        let html = `<strong>${module.code}</strong><br>${module.name}` +
+                            (prereqNames.length
+                                ? `<br><small>Prerequisites: ${prereqNames.join(', ')}</small>`
+                                : '');
+
+                        if (completed.has(module.code)) {
+                            tile.classList.add('completed');
+                            html += `<span class="tick">&#10003;</span>`;
+                        } else if (isAvailable(module)) {
+                            tile.classList.add('available');
+                        } else if (module.prerequisites.length > 0) {
+                            tile.classList.add('locked');
+                        }
+
+                        if (module.column !== undefined && module.column !== "X") {
+                            html += `<span class="column-label">${module.column}</span>`;
+                        }
+
+                        tile.innerHTML = html;
+
+                        if (!tile.classList.contains('locked')) {
+                            tile.onclick = () => {
+                                if (completed.has(module.code)) {
+                                    completed.delete(module.code);
+                                } else {
+                                    completed.add(module.code);
+                                }
+                                renderModules();
+                            };
+                        }
+
+                        container.appendChild(tile);
+                    });
+            });
+        }
+
+        function isAvailable(module) {
+            return module.prerequisites.every(prereq => completed.has(prereq));
+        }
+    </script>
+</body>
+
+</html>

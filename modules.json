@@ -1,0 +1,517 @@
+[
+    {
+        "code": "MATH1031",
+        "name": "Discrete Mathematics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1051",
+        "name": "Analysis I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1061",
+        "name": "Calculus I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1071",
+        "name": "Linear Algebra I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1587",
+        "name": "Programming I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1597",
+        "name": "Probability I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1617",
+        "name": "Statistics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1627",
+        "name": "Dynamics & Relativity I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH2731",
+        "name": "Computational Mathematics II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071",
+            "MATH1587"
+        ]
+    },
+    {
+        "code": "MATH2741",
+        "name": "Methods of Mathematical Physics II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071",
+            "MATH1627"
+        ]
+    },
+    {
+        "code": "MATH2751",
+        "name": "Probability II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1597",
+            "MATH1061",
+            "MATH1071",
+            "MATH1051"
+        ]
+    },
+    {
+        "code": "MATH2761",
+        "name": "Statistical Inference II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1617",
+            "MATH1061",
+            "MATH1071",
+            "MATH1597"
+        ]
+    },
+    {
+        "code": "MATH2781",
+        "name": "Algebra II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH2791",
+        "name": "Complex Analysis II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071",
+            "MATH1051"
+        ]
+    },
+    {
+        "code": "MATH2801",
+        "name": "Data Science & Statistical Modelling II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071",
+            "MATH1597",
+            "MATH1617"
+        ]
+    },
+    {
+        "code": "MATH2811",
+        "name": "Mathematical Methods II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3CK1",
+        "name": "Cryptography & Knots",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3NT1",
+        "name": "Number Theory",
+        "level": 3,
+        "column": "P",
+        "prerequisites": [
+            "MATH2781"
+        ]
+    },
+    {
+        "code": "MATH3GG1",
+        "name": "Galois Theory, Groups & Geometry",
+        "level": 3,
+        "column": "P",
+        "prerequisites": [
+            "MATH2781",
+            "MATH2791"
+        ]
+    },
+    {
+        "code": "MATH3AT1",
+        "name": "Analysis & Topology",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2791"
+        ]
+    },
+    {
+        "code": "MATH3021",
+        "name": "Differential Geometry",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2811"
+        ]
+    },
+    {
+        "code": "MATH3291",
+        "name": "Partial Differential Equations",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2811"
+        ]
+    },
+    {
+        "code": "MATH3101",
+        "name": "Fluid Mechanics",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2811"
+        ]
+    },
+    {
+        "code": "MATH3171",
+        "name": "Mathematical Biology",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2811"
+        ]
+    },
+    {
+        "code": "MATH3111",
+        "name": "Quantum Mechanics",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2811"
+        ]
+    },
+    {
+        "code": "MATH3GR1",
+        "name": "General Relativity",
+        "level": 3,
+        "column": "A",
+        "prerequisites": [
+            "MATH2811",
+            "MATH2741"
+        ]
+    },
+    {
+        "code": "MATH3231",
+        "name": "Solitons",
+        "level": 3,
+        "column": "A",
+        "prerequisites": [
+            "MATH3231"
+        ]
+    },
+    {
+        "code": "MATH3301",
+        "name": "Mathematical Finance",
+        "level": 3,
+        "column": "R",
+        "prerequisites": [
+            "MATH2751"
+        ]
+    },
+    {
+        "code": "MATH3251",
+        "name": "Stochastic Processes",
+        "level": 3,
+        "column": "R",
+        "prerequisites": [
+            "MATH2751"
+        ]
+    },
+    {
+        "code": "MATH3141",
+        "name": "Operations Research",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3071",
+        "name": "Decision Theory",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3411",
+        "name": "Advanced Stastical Modelling",
+        "level": 3,
+        "column": "S",
+        "prerequisites": [
+            "MATH2801",
+            "MATH2761"
+        ]
+    },
+    {
+        "code": "MATH3421",
+        "name": "Bayesian Computation and Modelling",
+        "level": 3,
+        "column": "S",
+        "prerequisites": [
+            "MATH2801",
+            "MATH2761"
+        ]
+    },
+    {
+        "code": "MATH3431",
+        "name": "Machine Learning & Neural Networks",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH2761"
+        ]
+    },
+    {
+        "code": "MATH3481",
+        "name": "Mathematics into Schools",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3452",
+        "name": "Internship Project III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH3382",
+        "name": "Project III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH4431",
+        "name": "Advanced Probability IV",
+        "level": 4,
+        "column": "R",
+        "prerequisites": [
+            "MATH2751"
+        ]
+    },
+    {
+        "code": "MATH4261",
+        "name": "Stochastic Analysis IV",
+        "level": 4,
+        "column": "R",
+        "prerequisites": [
+            "MATH2751"
+        ]
+    },
+    {
+        "code": "MATH4151",
+        "name": "Topics in Algebra & Geometry IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH2791",
+            "MATH2781"
+        ]
+    },
+    {
+        "code": "MATH4161",
+        "name": "Algebraic Topology IV",
+        "level": 4,
+        "column": "P",
+        "prerequisites": [
+            "MATH2781"
+        ]
+    },
+    {
+        "code": "MATH4171",
+        "name": "Riemannian Geometry IV",
+        "level": 4,
+        "column": "P",
+        "prerequisites": [
+            "MATH2781",
+            "MATH3021"
+        ]
+    },
+    {
+        "code": "MATH4241",
+        "name": "Representation Theory IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH2781"
+        ]
+    },
+    {
+        "code": "MATH4281",
+        "name": "Topics in Combinatorics IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH2781"
+        ]
+    },
+    {
+        "code": "MATH4371",
+        "name": "Functional Analysis & Applications IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH2781",
+            "MATH2791",
+            "MATH3AT1"
+        ]
+    },
+    {
+        "code": "MATH4421",
+        "name": "Geophysical & Astrophysical Fluids IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH3101"
+        ]
+    },
+    {
+        "code": "MATH4411",
+        "name": "Advanced Mathematical Biology IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH3171"
+        ]
+    },
+    {
+        "code": "MATH4231",
+        "name": "Statistical Mechanics IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH2741"
+        ]
+    },
+    {
+        "code": "MATH4QF1",
+        "name": "Quantum Field Theory IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH3111"
+        ]
+    },
+    {
+        "code": "MATH4271",
+        "name": "Superstrings IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH3111"
+        ]
+    },
+    {
+        "code": "MATH4GM1",
+        "name": "Geometry of Mathematical Physics IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH3GR1"
+        ]
+    },
+    {
+        "code": "MATH4HD1",
+        "name": "High-Dimensional Statistics & Deep Learning IV",
+        "level": 4,
+        "column": "S",
+        "prerequisites": [
+            "MATH3431"
+        ]
+    },
+    {
+        "code": "MATH4UQ1",
+        "name": "Uncertainty Quantification & Clinical Trials IV",
+        "level": 4,
+        "column": "S",
+        "prerequisites": [
+            "MATH2801",
+            "MATH2761"
+        ]
+    },
+    {
+        "code": "MATH4341",
+        "name": "Spatio-Temporal Statistics IV",
+        "level": 4,
+        "column": "S",
+        "prerequisites": [
+            "MATH3421"
+        ]
+    },
+    {
+        "code": "MATH4391",
+        "name": "Nonparametric Statistics IV",
+        "level": 4,
+        "column": "S",
+        "prerequisites": [
+            "MATH2671"
+        ]
+    },
+    {
+        "code": "MATH4072",
+        "name": "Project IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    },
+    {
+        "code": "MATH4352",
+        "name": "Internship Project IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061",
+            "MATH1071"
+        ]
+    }
+]
