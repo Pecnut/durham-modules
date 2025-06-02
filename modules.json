@@ -227,7 +227,8 @@
         "level": 3,
         "column": "A",
         "prerequisites": [
-            "MATH3231"
+            "MATH1061",
+            "MATH1071"
         ]
     },
     {
@@ -270,7 +271,7 @@
     },
     {
         "code": "MATH3411",
-        "name": "Advanced Stastical Modelling",
+        "name": "Advanced Statistical Modelling",
         "level": 3,
         "column": "S",
         "prerequisites": [
