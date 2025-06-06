@@ -413,13 +413,23 @@
         "complicated_requisites": true
     },
     {
-        "code": "MATH3382",
-        "name": "Project III",
+        "code": "MATH3GP1",
+        "name": "Group Project III",
         "level": 3,
         "column": "X",
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3PR1",
+        "name": "Project III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH3GP1"
         ],
         "complicated_requisites": true
     },
