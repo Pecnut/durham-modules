@@ -272,8 +272,10 @@
         "column": "X",
         "theme": "Applied",
         "prerequisites": [
-            "MATH2811",
-            "PHYS2611"
+            [
+                "MATH2811",
+                "PHYS2611"
+            ]
         ]
     },
     {
