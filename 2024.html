@@ -94,8 +94,14 @@
                         }
 
                         let prereqDisplay = "";
-                        if (module.prerequisites && module.prerequisites.length > 0) {
-                            prereqDisplay = `<div class='prerequisites'>Requires: ${prereqToString(module.prerequisites, 0, modules)} `
+                        if (
+                            module.code &&
+                            !module.code.startsWith("MATH") &&
+                            module.level >= 2
+                        ) {
+                            prereqDisplay = `<div class='prerequisites'>Requires: See faculty handbook</div>`;
+                        } else if (module.prerequisites && module.prerequisites.length > 0) {
+                            prereqDisplay = `<div class='prerequisites'>Requires: ${prereqToString(module.prerequisites, 0, modules)} `;
                             if (module.complicated_requisites) {
                                 prereqDisplay += `<span class='dagger'">&#8224;</span>`;
                             }
@@ -182,7 +188,7 @@
             const selected3Columns = [...new Set(selected3.map(m => m.column))];
             let clash3Warning = '';
             if (selected3Columns.length > 1) {
-                clash3Warning = `⚠️ For Level 3: You have selected modules from more than one column (${selected3Columns.join(', ')}). You may not take modules marked with different letters together.`;
+                clash3Warning = `⚠️ You have selected modules marked with more than one letter: <span class='circled'>${selected3Columns.join(' ')}</span>. You may not take modules marked with different letters together.`;
             }
             column3WarningDiv.innerHTML = clash3Warning;
 
@@ -194,7 +200,7 @@
             const selected4Columns = [...new Set(selected4.map(m => m.column))];
             let clash4Warning = '';
             if (selected4Columns.length > 1) {
-                clash4Warning = `⚠️ For Level 4: You have selected modules from more than one column (${selected4Columns.join(', ')}). You may not take modules marked with different letters together.`;
+                clash4Warning = `⚠️ You have selected modules marked with more than one letter: <span class='circled'>${selected4Columns.join(', ')}</span>. You may not take modules marked with different letters together.`;
             }
             column4WarningDiv.innerHTML = clash4Warning;
         }
