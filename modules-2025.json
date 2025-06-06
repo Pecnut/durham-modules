@@ -33,7 +33,9 @@
         "code": "MATH1571",
         "name": "Single Mathematics B",
         "level": 1,
-        "prerequisites": ["MATH1561"]
+        "prerequisites": [
+            "MATH1561"
+        ]
     },
     {
         "code": "MATH1587",
@@ -67,7 +69,7 @@
     },
     {
         "code": "COMP1051/1101/1111/PHYS1011",
-        "name": "Programming courses from COMP or PHYS",
+        "name": "Programming courses from COMP/PHYS",
         "level": 1,
         "prerequisites": []
     },
@@ -75,6 +77,7 @@
         "code": "MATH2731",
         "name": "Computational Mathematics II",
         "level": 2,
+        "term": "M",
         "prerequisites": [
             [
                 "MATH1061/1081"
@@ -95,10 +98,9 @@
         "term": "E",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH1061/1081",
-            "MATH1071/1091",
+            "MATH2811",
             [
-                "MATH1627",
+                "MATH1607",
                 "PHYS1122"
             ]
         ]
@@ -175,21 +177,29 @@
         ]
     },
     {
+        "code": "PHYS2611",
+        "name": "Mathematical Methods in Physics II",
+        "level": 2,
+        "prerequisites": []
+    },
+    {
+        "code": "PHYS2631",
+        "name": "Theoretical Physics II",
+        "level": 2,
+        "prerequisites": []
+    },
+    {
         "code": "MATH3CK1",
-        "name": "Cryptography & Knots III",
+        "name": "Codes & Knots III",
         "level": 3,
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH1061/1081",
             "MATH1071/1091"
-        ],
-        "exclusions": [
-            "COMP3731"
         ]
     },
     {
-        "code": "MATH3NT1",
+        "code": "MATH3031",
         "name": "Number Theory III",
         "level": 3,
         "column": "P",
@@ -226,7 +236,8 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2811"
+            "MATH2811",
+            "MATH1051"
         ]
     },
     {
@@ -236,7 +247,8 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2811"
+            "MATH2811",
+            "MATH1051"
         ],
         "complicated_requisites": true
     },
@@ -247,7 +259,10 @@
         "column": "X",
         "theme": "Applied",
         "prerequisites": [
-            "MATH2811"
+            [
+                "MATH2811",
+                "PHYS2611"
+            ]
         ]
     },
     {
@@ -257,7 +272,8 @@
         "column": "X",
         "theme": "Applied",
         "prerequisites": [
-            "MATH2811"
+            "MATH2811",
+            "PHYS2611"
         ]
     },
     {
@@ -267,7 +283,6 @@
         "column": "X",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH2811",
             "MATH2741"
         ]
     },
@@ -278,8 +293,14 @@
         "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH2811",
-            "MATH2741"
+            [
+                "MATH2811",
+                "PHYS2611"
+            ],
+            [
+                "MATH2741",
+                "PHYS2631"
+            ]
         ]
     },
     {
@@ -313,8 +334,7 @@
         "column": "R",
         "theme": "Probability",
         "prerequisites": [
-            "MATH2751",
-            "MATH2811"
+            "MATH2751"
         ]
     },
     {
@@ -324,7 +344,6 @@
         "column": "X",
         "theme": "Probability",
         "prerequisites": [
-            "MATH1061/1081",
             "MATH1071/1091",
             "MATH1597"
         ]
@@ -368,7 +387,7 @@
         "column": "X",
         "theme": "Statistics",
         "prerequisites": [
-            "MATH2761"
+            "MATH2801"
         ]
     },
     {
@@ -411,7 +430,8 @@
         "column": "R",
         "theme": "Probability",
         "prerequisites": [
-            "MATH2751"
+            "MATH2751",
+            "MATH2791"
         ]
     },
     {
@@ -433,8 +453,7 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2791",
-            "MATH2781",
-            "MATH2741"
+            "MATH2781"
         ]
     },
     {
@@ -444,7 +463,8 @@
         "column": "P",
         "theme": "Pure",
         "prerequisites": [
-            "MATH3AT1"
+            "MATH3AT1",
+            "MATH2781"
         ],
         "complicated_requisites": true
     },
@@ -466,7 +486,8 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2781"
+            "MATH2781",
+            "MATH1051"
         ],
         "complicated_requisites": true
     },
@@ -487,7 +508,7 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2781",
+            "MATH2811",
             "MATH3AT1"
         ]
     },
@@ -518,8 +539,14 @@
         "column": "X",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH2741",
-            "MATH2811"
+            [
+                "MATH2741",
+                "PHYS2631"
+            ]
+        ],
+        "exclusions": [
+            "PHYS3631",
+            "PHYS4261"
         ]
     },
     {
@@ -529,7 +556,10 @@
         "column": "X",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH3111"
+            [
+                "MATH3111",
+                "PHYS2631"
+            ]
         ]
     },
     {
@@ -539,7 +569,15 @@
         "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH3111"
+            [
+                "MATH3111",
+                "PHYS2631"
+            ],
+            [
+                "MATH4QF1",
+                "PHYS4141",
+                "PHYS4181"
+            ]
         ]
     },
     {
@@ -556,7 +594,7 @@
         "code": "MATH4HD1",
         "name": "High-Dimensional Statistics & Deep Learning IV",
         "level": 4,
-        "column": "S",
+        "column": "X",
         "theme": "Statistics",
         "prerequisites": [
             "MATH3431"
@@ -566,11 +604,10 @@
         "code": "MATH4UQ1",
         "name": "Uncertainty Quantification & Clinical Trials IV",
         "level": 4,
-        "column": "S",
+        "column": "X",
         "theme": "Statistics",
         "prerequisites": [
-            "MATH2801",
-            "MATH2761"
+            "MATH2801"
         ]
     },
     {
@@ -612,5 +649,17 @@
             "MATH1061/1081",
             "MATH1071/1091"
         ]
+    },
+    {
+        "code": "PHYS4141",
+        "name": "Advanced Theoretical Physics IV",
+        "level": 4,
+        "prerequisites": []
+    },
+    {
+        "code": "PHYS4181",
+        "name": "Particle Theory IV",
+        "level": 4,
+        "prerequisites": []
     }
 ]
