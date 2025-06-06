@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mathematics modules</title>
+    <link rel="preconnect" href="https://rsms.me/">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div id="header">
+        <div class="header-flex">
+            <h1>
+                Durham mathematics modules <span class='entry-year'>for 2025 entry</span>
+            </h1>
+            <a href="index.html" class="year-switch-link"><- Choose a different entry year</a>
+        </div>
+        <p>Select modules you have completed or would like to take. Modules are unlocked when you take their pre- or co-requisites.</p>
+        <p>This is an experimental tool to help you plan your mathematics modules. Some requirements are simplified: for full details, refer to the <a href="https://apps.dur.ac.uk/faculty.handbook/2025/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty handbook</a>.</p>
+    </div>
+    <div id="modules" class="container"></div>
+
+    <script>
+        let modules = [];
+        let completed = new Set();
+
+        // Fetch modules data from external JSON
+        fetch('modules-2025.json')
+            .then(response => response.json())
+            .then(data => {
+                modules = data;
+                renderModules();
+            });
+
+        function renderModules() {
+            const container = document.getElementById('modules');
+            container.innerHTML = '';
+
+            // Group by level
+            const levels = [...new Set(modules.map(m => m.level))].sort();
+            levels.forEach(level => {
+                const levelTitle = document.createElement('div');
+                levelTitle.className = 'level-title';
+                levelTitle.textContent = `Level ${level}`;
+                if (level == 2) {
+                    levelTitle.innerHTML += `<div class='column-info'>Modules run either in Michaelmas <span class='squared'>M</span> or Epiphany <span class='squared'>E</span>. No more than three modules can be taken in a term.</div>`;
+                    levelTitle.innerHTML += `<div id="l2-modules-warning"></div>`;
+                }
+                if (level >= 3) {
+                    levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
+                    levelTitle.innerHTML += `<div id="l${level}-modules-warning"></div>`;
+                }
+                container.appendChild(levelTitle);
+
+                // Sort modules by code before displaying
+                modules
+                    .filter(m => m.level === level)
+                    .sort((a, b) => {
+                        // MATH codes first, then PHYS/COMP/anything else
+                        const isMathA = a.code && a.code.startsWith('MATH');
+                        const isMathB = b.code && b.code.startsWith('MATH');
+                        if (isMathA && !isMathB) return -1;
+                        if (!isMathA && isMathB) return 1;
+
+                        // Then by term descending (undefined last)
+                        const termA = a.term === undefined ? '' : a.term;
+                        const termB = b.term === undefined ? '' : b.term;
+                        if (termA !== termB) return termB.localeCompare(termA);
+
+                        // Then by theme (undefined first)
+                        const themeA = a.theme ? a.theme : '0000';
+                        const themeB = b.theme ? b.theme : '0000';
+                        if (themeA !== themeB) return themeA.localeCompare(themeB);
+
+                        // Then by module name
+                        return a.name.localeCompare(b.name);
+                    })
+                    .forEach(module => {
+                        const tile = document.createElement('div');
+                        tile.className = 'tile';
+
+                        // Add dashed outline for non-MATH modules
+                        if (!module.code || !module.code.startsWith('MATH')) {
+                            tile.classList.add('non-math-module');
+                        }
+
+                        let prereqDisplay = "";
+                        if (module.prerequisites && module.prerequisites.length > 0) {
+                            prereqDisplay = `<div class='prerequisites'>Requires: ${prereqToString(module.prerequisites, 0, modules)} `
+                            if (module.complicated_requisites) {
+                                prereqDisplay += `<span class='dagger'">&#8224;</span>`;
+                            }
+                            prereqDisplay += `</div>`;
+                        }
+
+                        // Replace the last space in the module name with a non-breaking space
+                        let moduleName = module.name.replace(/ (\S+)$/, '\u00A0$1');
+                        let html = `<div class='module-code'>${module.code}</div><div class='module-name'>${moduleName}</div>` +
+                            prereqDisplay;
+
+                        // Add theme badge if theme exists
+                        if (module.theme) {
+                            let themeClass = '';
+                            switch (module.theme.toLowerCase()) {
+                                case 'probability': themeClass = 'theme-badge probability'; break;
+                                case 'pure': themeClass = 'theme-badge pure'; break;
+                                case 'applied': themeClass = 'theme-badge applied'; break;
+                                case 'math phys': themeClass = 'theme-badge mathphys'; break;
+                                case 'statistics': themeClass = 'theme-badge statistics'; break;
+                                default: themeClass = 'theme-badge'; break;
+                            }
+                            html += `<div class="${themeClass}">${module.theme}</div>`;
+                        }
+
+                        if (completed.has(module.code)) {
+                            tile.classList.add('completed');
+                            html += `<span class="tick">&#10003;</span>`;
+                        } else if (isAvailable(module)) {
+                            tile.classList.add('available');
+                        } else if (module.prerequisites.length > 0) {
+                            tile.classList.add('locked');
+                        }
+
+                        if (module.column !== undefined && module.column !== "X") {
+                            html += `<span class="column-label">${module.column}</span>`;
+                        }
+                        if (module.term !== undefined) {
+                            html += `<span class="term-label">${module.term}</span>`;
+                        }
+
+                        tile.innerHTML = html;
+
+                        if (!tile.classList.contains('locked')) {
+                            tile.onclick = () => {
+                                if (completed.has(module.code)) {
+                                    completed.delete(module.code);
+                                } else {
+                                    completed.add(module.code);
+                                }
+                                renderModules();
+                            };
+                        }
+
+                        container.appendChild(tile);
+                    });
+            });
+
+            // Level 2 term limit warning
+            const warningDiv = document.getElementById('l2-modules-warning');
+            if (warningDiv) {
+                // Count selected Level 2 modules by term
+                const selectedL2 = modules.filter(
+                    m => m.level === 2 && completed.has(m.code)
+                );
+                const countM = selectedL2.filter(m => m.term === 'M').length;
+                const countE = selectedL2.filter(m => m.term === 'E').length;
+
+                let warningMsg = '';
+                if (countM > 3) {
+                    warningMsg += `⚠️ You have selected ${countM} Michaelmas modules (max 3).<br>`;
+                }
+                if (countE > 3) {
+                    warningMsg += `⚠️ You have selected ${countE} Epiphany modules (max 3).<br>`;
+                }
+                warningDiv.innerHTML = warningMsg;
+            }
+
+            // Level 3 column clash warning
+            let column3WarningDiv = document.getElementById('l3-modules-warning');
+            const selected3 = modules.filter(
+                m => m.level === 3 && completed.has(m.code) && m.column && ['A', 'P', 'R', 'S'].includes(m.column)
+            );
+            const selected3Columns = [...new Set(selected3.map(m => m.column))];
+            let clash3Warning = '';
+            if (selected3Columns.length > 1) {
+                clash3Warning = `⚠️ For Level 3: You have selected modules from more than one column (${selected3Columns.join(', ')}). You may not take modules marked with different letters together.`;
+            }
+            column3WarningDiv.innerHTML = clash3Warning;
+
+            // Level 4 column clash warning
+            let column4WarningDiv = document.getElementById('l4-modules-warning');
+            const selected4 = modules.filter(
+                m => m.level === 4 && completed.has(m.code) && m.column && ['A', 'P', 'R', 'S'].includes(m.column)
+            );
+            const selected4Columns = [...new Set(selected4.map(m => m.column))];
+            let clash4Warning = '';
+            if (selected4Columns.length > 1) {
+                clash4Warning = `⚠️ For Level 4: You have selected modules from more than one column (${selected4Columns.join(', ')}). You may not take modules marked with different letters together.`;
+            }
+            column4WarningDiv.innerHTML = clash4Warning;
+        }
+
+        function checkPrereq(prereq, completed, depth = 0) {
+            if (!Array.isArray(prereq)) return false;
+            if (prereq.length === 0) return true;
+            const isAllStrings = prereq.every(x => typeof x === "string");
+            if (isAllStrings) {
+                // AND at even depth, OR at odd depth
+                return (depth % 2 === 0)
+                    ? prereq.every(code => completed.has(code))
+                    : prereq.some(code => completed.has(code));
+            }
+            // Mixed: recurse for each item, join with AND at even depth, OR at odd depth
+            const results = prereq.map(item =>
+                Array.isArray(item)
+                    ? checkPrereq(item, completed, depth + 1)
+                    : completed.has(item)
+            );
+            return (depth % 2 === 0)
+                ? results.every(Boolean)
+                : results.some(Boolean);
+        }
+
+        function isAvailable(module) {
+            if (!module.prerequisites || module.prerequisites.length === 0) return true;
+            return checkPrereq(module.prerequisites, completed, 0);
+        }
+
+        function prereqToString(prereq, depth = 0, modules = []) {
+            if (!Array.isArray(prereq)) return "";
+            if (prereq.length === 0) return "";
+            const sep = (depth % 2 === 0) ? ", " : " or ";
+            return prereq.map(item => {
+                if (Array.isArray(item)) {
+                    const s = prereqToString(item, depth + 1, modules);
+                    // Only add brackets if this is an AND group or if the inner group has more than one element
+                    // if (depth % 2 === 0 && item.length > 1) {
+                    return `(${s})`;
+                    // }
+                    // return s;
+                } else {
+                    // Look up module name
+                    const mod = modules.find(m => m.code === item);
+                    if (mod && mod.name) {
+                        // Replace last space with non-breaking space for wrapping
+                        return mod.name.replace(/ (\S+)$/, '\u00A0$1');
+                    }
+                    return item;
+                }
+            }).join(sep);
+        }
+    </script>
+
+
+    <a class="github-link" href="https://github.com/Pecnut/durham-modules" target="_blank" rel="noopener"> View
+        this project on GitHub </a>
+</body>
+
+</html>

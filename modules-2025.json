@@ -12,16 +12,28 @@
         "prerequisites": []
     },
     {
-        "code": "MATH1061",
+        "code": "MATH1061/1081",
         "name": "Calculus I",
         "level": 1,
         "prerequisites": []
     },
     {
-        "code": "MATH1071",
+        "code": "MATH1071/1091",
         "name": "Linear Algebra I",
         "level": 1,
         "prerequisites": []
+    },
+    {
+        "code": "MATH1561",
+        "name": "Single Mathematics A",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1571",
+        "name": "Single Mathematics B",
+        "level": 1,
+        "prerequisites": ["MATH1561"]
     },
     {
         "code": "MATH1587",
@@ -48,14 +60,32 @@
         "prerequisites": []
     },
     {
+        "code": "PHYS1122",
+        "name": "Foundations of Physics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "COMP1051/1101/1111/PHYS1011",
+        "name": "Programming courses from COMP or PHYS",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
         "code": "MATH2731",
         "name": "Computational Mathematics II",
         "level": 2,
-        "term": "M",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071",
-            "MATH1587"
+            [
+                "MATH1061/1081"
+            ],
+            [
+                "MATH1071/1091"
+            ],
+            [
+                "MATH1587",
+                "COMP1051/1101/1111/PHYS1011"
+            ]
         ]
     },
     {
@@ -65,9 +95,12 @@
         "term": "E",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071",
-            "MATH1627"
+            "MATH1061/1081",
+            "MATH1071/1091",
+            [
+                "MATH1627",
+                "PHYS1122"
+            ]
         ]
     },
     {
@@ -78,8 +111,8 @@
         "theme": "Probability",
         "prerequisites": [
             "MATH1597",
-            "MATH1061",
-            "MATH1071",
+            "MATH1061/1081",
+            "MATH1071/1091",
             "MATH1051"
         ]
     },
@@ -91,8 +124,8 @@
         "theme": "Statistics",
         "prerequisites": [
             "MATH1617",
-            "MATH1061",
-            "MATH1071",
+            "MATH1061/1081",
+            "MATH1071/1091",
             "MATH1597"
         ]
     },
@@ -103,8 +136,8 @@
         "term": "M",
         "theme": "Pure",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091"
         ]
     },
     {
@@ -113,8 +146,8 @@
         "level": 2,
         "term": "E",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071",
+            "MATH1061/1081",
+            "MATH1071/1091",
             "MATH1051"
         ]
     },
@@ -134,8 +167,11 @@
         "level": 2,
         "term": "M",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "exclusions": [
+            "PHYS2611"
         ]
     },
     {
@@ -145,8 +181,11 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "exclusions": [
+            "COMP3731"
         ]
     },
     {
@@ -198,7 +237,8 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2811"
-        ]
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH3101",
@@ -227,7 +267,8 @@
         "column": "X",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH2811"
+            "MATH2811",
+            "MATH2741"
         ]
     },
     {
@@ -248,8 +289,10 @@
         "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            [
+                "MATH1061/1081",
+                "MATH1571"
+            ]
         ]
     },
     {
@@ -260,7 +303,8 @@
         "theme": "Probability",
         "prerequisites": [
             "MATH2751"
-        ]
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH3251",
@@ -269,7 +313,8 @@
         "column": "R",
         "theme": "Probability",
         "prerequisites": [
-            "MATH2751"
+            "MATH2751",
+            "MATH2811"
         ]
     },
     {
@@ -279,8 +324,9 @@
         "column": "X",
         "theme": "Probability",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
         ]
     },
     {
@@ -290,8 +336,9 @@
         "column": "X",
         "theme": "Probability",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
         ]
     },
     {
@@ -301,8 +348,7 @@
         "column": "S",
         "theme": "Statistics",
         "prerequisites": [
-            "MATH2801",
-            "MATH2761"
+            "MATH2801"
         ]
     },
     {
@@ -312,8 +358,7 @@
         "column": "S",
         "theme": "Statistics",
         "prerequisites": [
-            "MATH2801",
-            "MATH2761"
+            "MATH2801"
         ]
     },
     {
@@ -332,9 +377,10 @@
         "level": 3,
         "column": "X",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
-        ]
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH3452",
@@ -342,9 +388,10 @@
         "level": 3,
         "column": "X",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
-        ]
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH3382",
@@ -352,9 +399,10 @@
         "level": 3,
         "column": "X",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
-        ]
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4431",
@@ -373,7 +421,8 @@
         "column": "R",
         "theme": "Probability",
         "prerequisites": [
-            "MATH2751"
+            "MATH2751",
+            "MATH3AT1"
         ]
     },
     {
@@ -384,7 +433,8 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2791",
-            "MATH2781"
+            "MATH2781",
+            "MATH2741"
         ]
     },
     {
@@ -394,8 +444,9 @@
         "column": "P",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2781"
-        ]
+            "MATH3AT1"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4171",
@@ -404,9 +455,9 @@
         "column": "P",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2781",
             "MATH3021"
-        ]
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4241",
@@ -416,7 +467,8 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2781"
-        ]
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4281",
@@ -466,7 +518,8 @@
         "column": "X",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH2741"
+            "MATH2741",
+            "MATH2811"
         ]
     },
     {
@@ -483,7 +536,7 @@
         "code": "MATH4271",
         "name": "Superstrings IV",
         "level": 4,
-        "column": "X",
+        "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
             "MATH3111"
@@ -493,7 +546,7 @@
         "code": "MATH4GM1",
         "name": "Geometry of Mathematical Physics IV",
         "level": 4,
-        "column": "X",
+        "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
             "MATH3GR1"
@@ -546,8 +599,8 @@
         "level": 4,
         "column": "X",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091"
         ]
     },
     {
@@ -556,8 +609,8 @@
         "level": 4,
         "column": "X",
         "prerequisites": [
-            "MATH1061",
-            "MATH1071"
+            "MATH1061/1081",
+            "MATH1071/1091"
         ]
     }
 ]

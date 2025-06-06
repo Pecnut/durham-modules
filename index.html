@@ -3,186 +3,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Mathematics modules</title>
+    <title>Durham mathematics modules – Choose entry year</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            background: #f5f5f5;
+        }
+
+        #year-chooser-container {
+            max-width: 420px;
+            margin: 80px auto 0 auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(25, 118, 210, 0.07);
+            padding: 36px 32px 32px 32px;
+            text-align: center;
+        }
+
+        #year-chooser-container h1 {
+            font-size: 2em;
+            margin-bottom: 0.5em;
+            color: #1976d2;
+        }
+
+        #year-chooser-container p {
+            color: #333;
+            margin-bottom: 2em;
+        }
+
+        .year-btn {
+            display: block;
+            width: 100%;
+            margin: 12px 0;
+            padding: 16px 0;
+            font-size: 1.2em;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            background: #e3eafc;
+            color: #1976d2;
+            cursor: pointer;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .year-btn:hover,
+        .year-btn:focus {
+            background: #1976d2;
+            color: #fff;
+        }
+
+        .github-link {
+            display: block;
+            margin: 48px auto 0 auto;
+            text-align: center;
+            color: #1976d2;
+            font-weight: bold;
+            text-decoration: none;
+            font-size: 1.08em;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 
 <body>
-    <div id="header">
-    <h1>Durham mathematics modules <span class='entry-year'>for 2024 entry</span></h1>
-    <p>Select modules you have completed or would like to take. Modules with prerequisites are locked until you select them.</p>
-    <p>This is an experimental tool to help you plan your mathematics modules. For full details, please refer to the <a href="https://apps.dur.ac.uk/faculty.handbook/2025/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty handbook</a>.</p>
-    </div>
-    <div id="modules" class="container"></div>
-
-    <script>
-        let modules = [];
-        let completed = new Set();
-
-        // Fetch modules data from external JSON
-        fetch('modules.json')
-            .then(response => response.json())
-            .then(data => {
-                modules = data;
-                renderModules();
-            });
-
-        function renderModules() {
-            const container = document.getElementById('modules');
-            container.innerHTML = '';
-
-            // Group by level
-            const levels = [...new Set(modules.map(m => m.level))].sort();
-            levels.forEach(level => {
-                const levelTitle = document.createElement('div');
-                levelTitle.className = 'level-title';
-                levelTitle.textContent = `Level ${level}`;
-                if (level == 2) {
-                    levelTitle.innerHTML += `<div class='column-info'>Modules run either in Michaelmas <span class='squared'>M</span> or Epiphany <span class='squared'>E</span>. No more than three modules can be taken in a term.</div>`;
-                    levelTitle.innerHTML += `<div id="l2-modules-warning"></div>`;
-                }
-                if (level >= 3) {
-                    levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
-                    levelTitle.innerHTML += `<div id="l${level}-modules-warning"></div>`;
-                }
-                container.appendChild(levelTitle);
-
-                // Sort modules by code before displaying
-                modules
-                    .filter(m => m.level === level)
-                    .sort((a, b) => {
-                        // Sort by term descending (undefined last)
-                        const termA = a.term === undefined ? '' : a.term;
-                        const termB = b.term === undefined ? '' : b.term;
-                        if (termA !== termB) return termB.localeCompare(termA);
-
-                        // Then by theme (undefined last)
-                        const themeA = a.theme ? a.theme : 'zzzz';
-                        const themeB = b.theme ? b.theme : 'zzzz';
-                        if (themeA !== themeB) return themeA.localeCompare(themeB);
-
-                        // Then by module name
-                        return a.name.localeCompare(b.name);
-                    })
-                    .forEach(module => {
-                        const tile = document.createElement('div');
-                        tile.className = 'tile';
-
-                        // Sort prerequisites by code, then map to names
-                        let prereqNames = [...module.prerequisites]
-                            .sort()
-                            .map(code => {
-                                const mod = modules.find(m => m.code === code);
-                                if (!mod) return code;
-                                // Replace only the last space with a non-breaking space
-                                return mod.name.replace(/ (\S+)$/, '\u00A0$1');
-                            });
-
-                        // Replace the last space in the module name with a non-breaking space
-                        module.name = module.name.replace(/ (\S+)$/, '\u00A0$1');
-                        let html = `<div class='module-code'>${module.code}</div><div class='module-name'>${module.name}</div>` +
-                            (prereqNames.length
-                                ? `<div class='prerequisites'>Requires: ${prereqNames.join(', ')}</div>`
-                                : '');
-
-                        // Add theme badge if theme exists
-                        if (module.theme) {
-                            let themeClass = '';
-                            switch (module.theme.toLowerCase()) {
-                                case 'probability': themeClass = 'theme-badge probability'; break;
-                                case 'pure': themeClass = 'theme-badge pure'; break;
-                                case 'applied': themeClass = 'theme-badge applied'; break;
-                                case 'math phys': themeClass = 'theme-badge mathphys'; break;
-                                case 'statistics': themeClass = 'theme-badge statistics'; break;
-                                default: themeClass = 'theme-badge'; break;
-                            }
-                            html += `<div class="${themeClass}">${module.theme}</div>`;
-                        }
-
-                        if (completed.has(module.code)) {
-                            tile.classList.add('completed');
-                            html += `<span class="tick">&#10003;</span>`;
-                        } else if (isAvailable(module)) {
-                            tile.classList.add('available');
-                        } else if (module.prerequisites.length > 0) {
-                            tile.classList.add('locked');
-                        }
-
-                        if (module.column !== undefined && module.column !== "X") {
-                            html += `<span class="column-label">${module.column}</span>`;
-                        }
-                        if (module.term !== undefined) {
-                            html += `<span class="term-label">${module.term}</span>`;
-                        }
-
-                        tile.innerHTML = html;
-
-                        if (!tile.classList.contains('locked')) {
-                            tile.onclick = () => {
-                                if (completed.has(module.code)) {
-                                    completed.delete(module.code);
-                                } else {
-                                    completed.add(module.code);
-                                }
-                                renderModules();
-                            };
-                        }
-
-                        container.appendChild(tile);
-                    });
-            });
-
-            // Level 2 term limit warning
-            const warningDiv = document.getElementById('l2-modules-warning');
-            if (warningDiv) {
-                // Count selected Level 2 modules by term
-                const selectedL2 = modules.filter(
-                    m => m.level === 2 && completed.has(m.code)
-                );
-                const countM = selectedL2.filter(m => m.term === 'M').length;
-                const countE = selectedL2.filter(m => m.term === 'E').length;
-
-                let warningMsg = '';
-                if (countM > 3) {
-                    warningMsg += `⚠️ You have selected ${countM} Michaelmas modules (max 3).<br>`;
-                }
-                if (countE > 3) {
-                    warningMsg += `⚠️ You have selected ${countE} Epiphany modules (max 3).<br>`;
-                }
-                warningDiv.innerHTML = warningMsg;
-            }
-
-            // Level 3 column clash warning
-            let column3WarningDiv = document.getElementById('l3-modules-warning');
-            const selected3 = modules.filter(
-                m => m.level === 3 && completed.has(m.code) && m.column && ['A','P','R','S'].includes(m.column)
-            );
-            const selected3Columns = [...new Set(selected3.map(m => m.column))];
-            let clash3Warning = '';
-            if (selected3Columns.length > 1) {
-                clash3Warning = `⚠️ For Level 3: You have selected modules from more than one column (${selected3Columns.join(', ')}). You may not take modules marked with different letters together.`;
-            }
-            column3WarningDiv.innerHTML = clash3Warning;
-
-            // Level 4 column clash warning
-            let column4WarningDiv = document.getElementById('l4-modules-warning');
-            const selected4 = modules.filter(
-                m => m.level === 4 && completed.has(m.code) && m.column && ['A','P','R','S'].includes(m.column)
-            );
-            const selected4Columns = [...new Set(selected4.map(m => m.column))];
-            let clash4Warning = '';
-            if (selected4Columns.length > 1) {
-                clash4Warning = `⚠️ For Level 4: You have selected modules from more than one column (${selected4Columns.join(', ')}). You may not take modules marked with different letters together.`;
-            }
-            column4WarningDiv.innerHTML = clash4Warning;
-        }
-
-        function isAvailable(module) {
-            return module.prerequisites.every(prereq => completed.has(prereq));
-        }
-    </script>
+    <div id="year-chooser-container">
+        <h1>Durham mathematics modules</h1>
+        <p> Please select the year you <strong>entered the university</strong> to view the correct module planner: </p>
+        <button class="year-btn" onclick="location.href='2025.html'">2025 entry</button> <button class="year-btn"
+            onclick="location.href='2024.html'">2024 entry</button> <button class="year-btn"
+            onclick="location.href='2022-23.html'">2023 entry</button> <button class="year-btn"
+            onclick="location.href='2022-23.html'">2022 entry</button>
+    </div> <a class="github-link" href="https://github.com/Pecnut/durham-modules" target="_blank" rel="noopener"> View
+        this project on GitHub </a>
 </body>
 
 </html>

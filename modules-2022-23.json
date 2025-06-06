@@ -1,0 +1,869 @@
+[
+    {
+        "code": "MATH1031",
+        "name": "Discrete Mathematics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1051",
+        "name": "Analysis I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1061/1081",
+        "name": "Calculus I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1071/1091",
+        "name": "Linear Algebra I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1561",
+        "name": "Single Mathematics A",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1571",
+        "name": "Single Mathematics B",
+        "level": 1,
+        "prerequisites": [
+            "MATH1561"
+        ]
+    },
+    {
+        "code": "MATH1587",
+        "name": "Programming I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1597",
+        "name": "Probability I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1617",
+        "name": "Statistics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH1607",
+        "name": "Dynamics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "PHYS1122",
+        "name": "Foundations of Physics I",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "COMP1051/1101/1111/PHYS1011",
+        "name": "Programming courses from COMP or PHYS",
+        "level": 1,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH2051",
+        "name": "Numerical Analysis II",
+        "level": 2,
+        "theme": "Applied",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1051",
+            [
+                "MATH1587",
+                "COMP1051/1101/1111/PHYS1011"
+            ]
+        ],
+        "exclusions": [
+            "MATH1551",
+            "MATH1561",
+            "MATH1571"
+        ]
+    },
+    {
+        "code": "MATH2071",
+        "name": "Mathematical Physics II",
+        "level": 2,
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            [
+                "MATH1607",
+                "PHYS1122"
+            ]
+        ],
+        "exclusions": [
+            "MATH1551",
+            "MATH1561",
+            "MATH1571",
+            "PHYS2631"
+        ]
+    },
+    {
+        "code": "MATH2647",
+        "name": "Probability II",
+        "level": 2,
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH1597",
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1051"
+        ]
+    },
+    {
+        "code": "MATH2711",
+        "name": "Statistical Inference II",
+        "level": 2,
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH1617",
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
+        ]
+    },
+    {
+        "code": "MATH2581",
+        "name": "Algebra II",
+        "level": 2,
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "exclusions": [
+            "MATH1551",
+            "MATH1561",
+            "MATH1571"
+        ]
+    },
+    {
+        "code": "MATH2011",
+        "name": "Complex Analysis II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1051"
+        ],
+        "exclusions": [
+            "MATH1551",
+            "MATH1561",
+            "MATH1571",
+            "PHYS2611"
+        ]
+    },
+    {
+        "code": "MATH2031",
+        "name": "Analysis in Many Variables II",
+        "level": 2,
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1051"
+        ],
+        "exclusions": [
+            "MATH1551",
+            "MATH1561",
+            "MATH1571",
+            "PHYS2611"
+        ]
+    },
+    {
+        "code": "MATH2617",
+        "name": "Elementary Number Theory II",
+        "level": 2,
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ]
+    },
+    {
+        "code": "MATH2637",
+        "name": "Mathematical Modelling II",
+        "level": 2,
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            [
+                "MATH1587",
+                "COMP1051/1101/1111/PHYS1011"
+            ]
+        ]
+    },
+    {
+        "code": "MATH2657",
+        "name": "Special Relativity & Electromagnetism II",
+        "level": 2,
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH2031"
+        ]
+    },
+    {
+        "code": "MATH2687",
+        "name": "Data Science & Statistical Computing II",
+        "level": 2,
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597",
+            [
+                "MATH1617",
+                "MATH1571"
+            ]
+        ]
+    },
+    {
+        "code": "MATH2697",
+        "name": "Statistical Modelling II",
+        "level": 2,
+        "theme": "Statistics",
+        "prerequisites": [
+            [
+                "MATH2687",
+                "MATH2711"
+            ]
+        ]
+    },
+    {
+        "code": "MATH2707",
+        "name": "Markov Chains II",
+        "level": 2,
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
+        ]
+    },
+    {
+        "code": "MATH2727",
+        "name": "Topology II",
+        "level": 2,
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1051",
+            "MATH2011"
+        ]
+    },
+    {
+        "code": "PHYS2631",
+        "name": "Theoretical Physics 2",
+        "level": 2,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH3011",
+        "name": "Analysis III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2011",
+            "MATH2031"
+        ]
+    },
+    {
+        "code": "MATH3021",
+        "name": "Differential Geometry III",
+        "level": 3,
+        "column": "AB",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2031"
+        ]
+    },
+    {
+        "code": "MATH3031",
+        "name": "Number Theory III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2581"
+        ]
+    },
+    {
+        "code": "MATH3041",
+        "name": "Galois Theory III",
+        "level": 3,
+        "column": "A",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2581"
+        ]
+    },
+    {
+        "code": "MATH3071",
+        "name": "Decision Theory III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
+        ]
+    },
+    {
+        "code": "MATH3091",
+        "name": "Dynamical Systems III",
+        "level": 3,
+        "column": "AB",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2011",
+            "MATH2031"
+        ]
+    },
+    {
+        "code": "MATH3101",
+        "name": "Fluid Mechanics III",
+        "level": 3,
+        "column": "BC",
+        "theme": "Applied",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH1607",
+                "PHYS1122"
+            ]
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3111",
+        "name": "Quantum Mechanics III",
+        "level": 3,
+        "column": "B",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2031",
+            "MATH2071"
+        ],
+        "exclusions": [
+            "PHYS2631",
+            "PHYS3621"
+        ]
+    },
+    {
+        "code": "MATH3141",
+        "name": "Operations Research III",
+        "level": 3,
+        "column": "AC",
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091",
+            "MATH1597"
+        ]
+    },
+    {
+        "code": "MATH3171",
+        "name": "Mathematical Biology III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Applied",
+        "prerequisites": [
+            "MATH2031"
+        ]
+    },
+    {
+        "code": "MATH3201",
+        "name": "Geometry III",
+        "level": 3,
+        "column": "A",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2011",
+            "MATH2031",
+            "MATH2581"
+        ]
+    },
+    {
+        "code": "MATH3231",
+        "name": "Solitons III",
+        "level": 3,
+        "column": "AB",
+        "theme": "Math Phys",
+        "prerequisites": [
+            [
+                "MATH1061/1081",
+                "MATH1571"
+            ]
+        ]
+    },
+    {
+        "code": "MATH3251",
+        "name": "Stochastic Processes III",
+        "level": 3,
+        "column": "C",
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH2707",
+                "MATH2647"
+            ]
+        ]
+    },
+    {
+        "code": "MATH3291",
+        "name": "Partial Differential Equations III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2031"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3301",
+        "name": "Mathematical Finance III",
+        "level": 3,
+        "column": "C",
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH2647"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3382",
+        "name": "Project III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3391",
+        "name": "Quantum Computing III",
+        "level": 3,
+        "column": "B",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH2071",
+                "PHYS2631"
+            ]
+        ]
+    },
+    {
+        "code": "MATH3401",
+        "name": "Cryptography & Codes III",
+        "level": 3,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2617"
+        ],
+        "exclusions": [
+            "COMP3731"
+        ]
+    },
+    {
+        "code": "MATH3411",
+        "name": "Advanced Statistical Modelling III",
+        "level": 3,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2711",
+            "MATH2697"
+        ]
+    },
+    {
+        "code": "MATH3421",
+        "name": "Bayesian Computation and Modelling III",
+        "level": 3,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2687",
+            "MATH2711"
+        ]
+    },
+    {
+        "code": "MATH3431",
+        "name": "Machine Learning & Neural Networks III",
+        "level": 3,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            [
+                "MATH2687",
+                "MATH2711"
+            ]
+        ]
+    },
+    {
+        "code": "MATH3452",
+        "name": "Internship Project III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3471",
+        "name": "Geometry of Mathematical Physics III",
+        "level": 3,
+        "column": "B",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH2071",
+                "PHYS2631"
+            ]
+        ]
+    },
+    {
+        "code": "MATH3481",
+        "name": "Mathematics into Schools III",
+        "level": 3,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH3491",
+        "name": "Geometric Topology III",
+        "level": 3,
+        "column": "A",
+        "prerequisites": [
+            "MATH2727",
+            "MATH2581",
+            "MATH2011"
+        ]
+    },
+    {
+        "code": "MATH4051",
+        "name": "General Relativity IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH2071",
+                "PHYS2631"
+            ]
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4061",
+        "name": "Advanced Quantum Theory IV",
+        "level": 4,
+        "column": "AB",
+        "theme": "Math Phys",
+        "prerequisites": [
+            [
+                "MATH3111",
+                "PHYS2631"
+            ]
+        ],
+        "exclusions": [
+            "PHYS4181"
+        ]
+    },
+    {
+        "code": "MATH4072",
+        "name": "Project IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4151",
+        "name": "Topics in Algebra & Geometry IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2011",
+            "MATH2031",
+            "MATH2581"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4161",
+        "name": "Algebraic Topology IV",
+        "level": 4,
+        "column": "A",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH3491"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4171",
+        "name": "Riemannian Geometry IV",
+        "level": 4,
+        "column": "AB",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH3021"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4231",
+        "name": "Statistical Mechanics IV",
+        "level": 4,
+        "column": "B",
+        "theme": "Math Phys",
+        "prerequisites": [
+            "MATH2031",
+            [
+                "MATH2071",
+                "PHYS2631"
+            ]
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4241",
+        "name": "Representation Theory IV",
+        "level": 4,
+        "column": "AB",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2581"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4261",
+        "name": "Stochastic Analysis IV",
+        "level": 4,
+        "column": "AC",
+        "theme": "Probability",
+        "prerequisites": [
+            "MATH2647",
+            "MATH3011"
+        ]
+    },
+    {
+        "code": "MATH4267",
+        "name": "Deep Learning & Artificial Intelligence IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH3431"
+        ]
+    },
+    {
+        "code": "MATH4271",
+        "name": "Superstrings IV",
+        "level": 4,
+        "column": "B",
+        "theme": "Math Phys",
+        "prerequisites": [
+            [
+                "MATH4061",
+                "PHYS4181"
+            ]
+        ]
+    },
+    {
+        "code": "MATH4281",
+        "name": "Topics in Combinatorics IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH2581"
+        ]
+    },
+    {
+        "code": "MATH4287",
+        "name": "High-Dimensional Statistics IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2711"
+        ]
+    },
+    {
+        "code": "MATH4337",
+        "name": "Uncertainty Quantification IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2711"
+        ]
+    },
+    {
+        "code": "MATH4341",
+        "name": "Spatio-Temporal Statistics IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            [
+                "MATH3421",
+                "MATH3411"
+            ]
+        ]
+    },
+    {
+        "code": "MATH4352",
+        "name": "Internship Project IV",
+        "level": 4,
+        "column": "X",
+        "prerequisites": [
+            "MATH1061/1081",
+            "MATH1071/1091"
+        ],
+        "complicated_requisites": true
+    },
+    {
+        "code": "MATH4361",
+        "name": "Ergodic Theory IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH3011"
+        ]
+    },
+    {
+        "code": "MATH4371",
+        "name": "Functional Analysis & Applications IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Pure",
+        "prerequisites": [
+            "MATH3011"
+        ]
+    },
+    {
+        "code": "MATH4391",
+        "name": "Nonparametric Statistics IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2711"
+        ]
+    },
+    {
+        "code": "MATH4407",
+        "name": "Clinical Trials IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            "MATH2711",
+            "MATH2697"
+        ]
+    },
+    {
+        "code": "MATH4411",
+        "name": "Advanced Mathematical Biology IV",
+        "level": 4,
+        "column": "ABC",
+        "theme": "Applied",
+        "prerequisites": [
+            "MATH3171"
+        ]
+    },
+    {
+        "code": "MATH4421",
+        "name": "Geophysical & Astrophysical Fluids IV",
+        "level": 4,
+        "column": "B",
+        "theme": "Applied",
+        "prerequisites": [
+            "MATH3101"
+        ]
+    },
+    {
+        "code": "MATH4431",
+        "name": "Advanced Probability IV",
+        "level": 4,
+        "column": "AC",
+        "theme": "Probability",
+        "prerequisites": [
+            [
+                [
+                    "MATH2011",
+                    "MATH3251"
+                ],
+                [
+                    "MATH2011",
+                    "MATH2647"
+                ],
+                [
+                    "MATH2707",
+                    "MATH3011"
+                ]
+            ]
+        ]
+    },
+    {
+        "code": "PHYS4181",
+        "name": "Particle Theory IV",
+        "level": 4,
+        "prerequisites": []
+    },
+    {
+        "code": "MATH4451",
+        "name": "Advanced Topics in Statistics IV",
+        "level": 4,
+        "column": "C",
+        "theme": "Statistics",
+        "prerequisites": [
+            [
+                "MATH2687",
+                "MATH2711"
+            ]
+        ]
+    }
+]

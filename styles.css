@@ -34,7 +34,8 @@ body {
     margin-bottom: 8px;
     position: relative;
     /* For tick positioning */
-    padding-bottom: 38px; /* Add extra space at the bottom for the badge */
+    padding-bottom: 38px;
+    /* Add extra space at the bottom for the badge */
 }
 
 .tile.completed {
@@ -43,7 +44,8 @@ body {
     width: 220px;
     border-width: 3px;
     padding: 15px;
-    padding-bottom: 37px; /* Add extra space at the bottom for the badge */
+    padding-bottom: 37px;
+    /* Add extra space at the bottom for the badge */
 }
 
 /* .tile.available { border-color: #ffe082; background: #fff9c488; } */
@@ -118,7 +120,7 @@ body {
 }
 
 .module-code {
-    font-size:small;
+    font-size: small;
     font-weight: 700;
 }
 
@@ -132,36 +134,139 @@ body {
 }
 
 .theme-badge {
-  display: inline-block;
-  position: absolute;
-  left: 12px;
-  bottom: 8px;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: x-small;
-  text-transform: uppercase;
-  color: #555;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  z-index: 2;
-  /* background: #888; */
-  /* Add space for the badge so it doesn't overlap content */
-  pointer-events: none;
-  border: 1.3px solid black;
+    display: inline-block;
+    position: absolute;
+    left: 12px;
+    bottom: 8px;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: x-small;
+    text-transform: uppercase;
+    color: #555;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    z-index: 2;
+    /* background: #888; */
+    /* Add space for the badge so it doesn't overlap content */
+    pointer-events: none;
+    border: 1.3px solid black;
 }
-.theme-badge.probability { border-color: #ff9800; }
-.theme-badge.pure { border-color: #8e24aa; }
-.theme-badge.applied { border-color: #388e3c; }
-.theme-badge.mathphys { border-color: #1976d2; }
-.theme-badge.statistics { border-color: #e53935; }
 
-#header{
+.theme-badge.probability {
+    border-color: #ff9800;
+}
+
+.theme-badge.pure {
+    border-color: #8e24aa;
+}
+
+.theme-badge.applied {
+    border-color: #388e3c;
+}
+
+.theme-badge.mathphys {
+    border-color: #1976d2;
+}
+
+.theme-badge.statistics {
+    border-color: #e53935;
+}
+
+#header {
     padding-left: 32px;
     padding-right: 32px;
 }
 
-#l2-modules-warning, #l3-modules-warning, #l4-modules-warning {
+#l2-modules-warning,
+#l3-modules-warning,
+#l4-modules-warning {
     color: #b71c1c;
     font-weight: bold;
     margin: 16px 32px 0 32px;
+}
+
+#entry-switcher {
+    background: #f0f4ff;
+    border-radius: 8px;
+    padding: 14px 18px 14px 18px;
+    margin: 18px 0 24px 0;
+    display: inline-block;
+    font-size: 1.1em;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.06);
+}
+
+#entry-switcher label {
+    margin-right: 10px;
+    font-weight: 600;
+    font-size: 1.08em;
+    color: #1976d2;
+}
+
+#entry-select {
+    font-size: 1.08em;
+    padding: 4px 14px;
+    border-radius: 6px;
+    border: 1.5px solid #1976d2;
+    background: #fff;
+    color: #1976d2;
+    font-weight: 600;
+    outline: none;
+    transition: border 0.2s;
+}
+
+#entry-select:focus {
+    border-color: #388e3c;
+}
+
+.github-link {
+    display: block;
+    margin: 48px auto 0 auto;
+    text-align: center;
+    color: #1976d2;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1.08em;
+}
+
+.github-link:hover {
+    text-decoration: underline;
+}
+
+.non-math-module {
+    border-style: dashed !important;
+    /* border-color: #888 !important; */
+}
+
+.year-switch-link {
+    display: inline-block;
+    margin: 12px 0 24px 0;
+    color: #1976d2;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 1.08em;
+    transition: color 0.15s;
+}
+
+.year-switch-link:hover {
+    text-decoration: underline;
+    color: #0d47a1;
+}
+
+.header-flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.header-flex h1 {
+    margin: 0;
+    font-size: 2em;
+    /* color: #1976d2; */
+    font-weight: 700;
+}
+
+.dagger {
+    opacity: 0.5;
 }
