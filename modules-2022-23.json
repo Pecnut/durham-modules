@@ -321,7 +321,7 @@
         "name": "Decision Theory III",
         "level": 3,
         "column": "ABC",
-        "theme": "Probability",
+        "theme": "Statistics",
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091",
