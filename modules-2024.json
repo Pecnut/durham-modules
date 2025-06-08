@@ -427,13 +427,19 @@
     },
     {
         "code": "MATH3PR1",
-        "name": "Project III",
+        "name": "Individual Project III",
         "level": 3,
         "column": "X",
         "prerequisites": [
             "MATH3GP1"
         ],
         "complicated_requisites": true
+    },
+    {
+        "code": "PHYS3621",
+        "name": "Foundations of Physics 3A",
+        "level": 3,
+        "prerequisites": []
     },
     {
         "code": "MATH4431",
@@ -650,7 +656,11 @@
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091"
-        ]
+        ],
+        "exclusions": [
+            "MATH4352"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4352",
@@ -660,7 +670,11 @@
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091"
-        ]
+        ],
+        "exclusions": [
+            "MATH4072"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "PHYS4141",

@@ -271,3 +271,17 @@ body {
 .dagger {
     opacity: 0.5;
 }
+
+.no-symbol {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 1.5em;
+    color: #c00;
+    pointer-events: none;
+}
+.exclusion-msg {
+    color: #c00;
+    font-size: small;
+    margin-top: 0.5em;
+}

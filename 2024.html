@@ -19,12 +19,17 @@
         </div>
         <p>Select modules you have completed or would like to take. Modules are unlocked when you take their pre- or
             co-requisites.</p>
-        <p>This is an experimental tool to help you plan your mathematics modules.</p>
-        <p><span class='dagger'>&dagger;</span>For full details of 2025–26 modules, please see the <a
+        <p>Check <a href='https://apps.dur.ac.uk/faculty.handbook/2025/UG/department/Mathematical%20Sciences'>your
+                degree
+                programme</a> for constraints on the modules that you must or can take.
+            <span class='dagger'>&dagger;</span>Full details of 2025–26 modules are in the <a
                 href="https://apps.dur.ac.uk/faculty.handbook/2025/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty
-                handbook</a>. There are further constraints on the modules that you must or can take depending on <a
-                href='https://apps.dur.ac.uk/faculty.handbook/2025/UG/department/Mathematical%20Sciences'>your degree
-                programme</a>.</p>
+                handbook</a>.
+        </p>
+        <p>This is an experimental tool. For advice, talk to your academic advisor. For technical problems, <a
+                href='mailto:adam.k.townsend@durham.ac.uk'>get in touch</a>.
+
+        </p>
 
     </div>
     <div id="modules" class="container"></div>
@@ -38,6 +43,18 @@
             .then(response => response.json())
             .then(data => {
                 modules = data;
+
+                // Build a map: code -> Set of codes that exclude it
+                window.excludedByMap = {};
+                modules.forEach(m => {
+                    if (m.exclusions && m.exclusions.length > 0) {
+                        m.exclusions.forEach(excl => {
+                            if (!excludedByMap[excl]) excludedByMap[excl] = new Set();
+                            excludedByMap[excl].add(m.code);
+                        });
+                    }
+                });
+
                 renderModules();
             });
 
@@ -127,7 +144,41 @@
                             html += `<div class="${themeClass}">${module.theme}</div>`;
                         }
 
-                        if (completed.has(module.code)) {
+                        // --- Exclusion logic ---
+                        let exclusionReason = "";
+                        let isExcluded = false;
+
+                        // Check if this module is excluded by any selected module (forwards)
+                        if (module.exclusions && module.exclusions.length > 0) {
+                            for (const excl of module.exclusions) {
+                                if (completed.has(excl)) {
+                                    isExcluded = true;
+                                    const exclMod = modules.find(m => m.code === excl);
+                                    const exclName = exclMod ? exclMod.name.replace(/ (\S+)$/, '\u00A0$1') : excl;
+                                    exclusionReason = `Cannot be taken with ${exclName}`;
+                                    break;
+                                }
+                            }
+                        }
+
+                        // Check if this module is excluded BY any selected module (reverse)
+                        if (!isExcluded && excludedByMap[module.code]) {
+                            for (const excl of excludedByMap[module.code]) {
+                                if (completed.has(excl)) {
+                                    isExcluded = true;
+                                    const exclMod = modules.find(m => m.code === excl);
+                                    const exclName = exclMod ? exclMod.name.replace(/ (\S+)$/, '\u00A0$1') : excl;
+                                    exclusionReason = `Cannot be taken with ${exclName}`;
+                                    break;
+                                }
+                            }
+                        }
+
+                        if (isExcluded) {
+                            tile.classList.add('locked');
+                            html += `<div class="exclusion-msg">${exclusionReason}</div>`;
+                            html += `<span class="no-symbol" title="Excluded">&#128683;</span>`; // 🚫
+                        } else if (completed.has(module.code)) {
                             tile.classList.add('completed');
                             html += `<span class="tick">&#10003;</span>`;
                         } else if (isAvailable(module)) {
@@ -145,7 +196,8 @@
 
                         tile.innerHTML = html;
 
-                        if (!tile.classList.contains('locked')) {
+                        // Prevent clicking if locked or excluded
+                        if (!tile.classList.contains('locked') && !isExcluded) {
                             tile.onclick = () => {
                                 if (completed.has(module.code)) {
                                     completed.delete(module.code);

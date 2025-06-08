@@ -461,6 +461,9 @@
             "MATH1061/1081",
             "MATH1071/1091"
         ],
+        "exclusions": [
+            "MATH3452"
+        ],
         "complicated_requisites": true
     },
     {
@@ -534,6 +537,9 @@
             "MATH1061/1081",
             "MATH1071/1091"
         ],
+        "exclusions": [
+            "MATH3382"
+        ],
         "complicated_requisites": true
     },
     {
@@ -566,11 +572,24 @@
         "name": "Geometric Topology III",
         "level": 3,
         "column": "A",
+        "theme": "Pure",
         "prerequisites": [
             "MATH2727",
             "MATH2581",
             "MATH2011"
         ]
+    },
+    {
+        "code": "PHYS3621",
+        "name": "Foundations of Physics 3A",
+        "level": 3,
+        "prerequisites": []
+    },
+    {
+        "code": "COMP3731",
+        "name": "Cryptography",
+        "level": 3,
+        "prerequisites": []
     },
     {
         "code": "MATH4051",
@@ -611,6 +630,9 @@
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091"
+        ],
+        "exclusions": [
+            "MATH4352"
         ],
         "complicated_requisites": true
     },
@@ -760,6 +782,9 @@
         "prerequisites": [
             "MATH1061/1081",
             "MATH1071/1091"
+        ],
+        "exclusions": [
+            "MATH4072"
         ],
         "complicated_requisites": true
     },
