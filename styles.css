@@ -186,6 +186,15 @@ body {
     margin: 16px 32px 0 32px;
 }
 
+#l1-credits-warning,
+#l2-credits-warning,
+#l3-credits-warning,
+#l4-credits-warning {
+    color: #b71c1c;
+    font-weight: bold;
+    margin: 16px 32px 0 32px;
+}
+
 #entry-switcher {
     background: #f0f4ff;
     border-radius: 8px;

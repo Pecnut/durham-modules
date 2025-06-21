@@ -6,7 +6,7 @@
     <title>Mathematics modules</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="styles.css?v=2025-06-08">
+    <link rel="stylesheet" href="styles.css?v=2025-06-21">
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
 </head>
 
@@ -62,6 +62,22 @@
             const container = document.getElementById('modules');
             container.innerHTML = '';
 
+            // Calculate total credits selected per level
+            const selectedModules = modules.filter(m => completed.has(m.code));
+            const creditsByLevel = {};
+            selectedModules.forEach(m => {
+                if (m.code && /\d$/.test(m.code)) {
+                    const lastDigit = m.code.slice(-1);
+                    let credits = 0;
+                    if (lastDigit === "7") credits = 10;
+                    else if (lastDigit === "1") credits = 20;
+                    else if (lastDigit === "2") credits = 40;
+                    else if (lastDigit === "3") credits = 60;
+                    if (!creditsByLevel[m.level]) creditsByLevel[m.level] = 0;
+                    creditsByLevel[m.level] += credits;
+                }
+            });
+
             // Group by level
             const levels = [...new Set(modules.map(m => m.level))].sort();
             levels.forEach(level => {
@@ -76,6 +92,7 @@
                     levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
                     levelTitle.innerHTML += `<div id="l${level}-modules-warning"></div>`;
                 }
+                levelTitle.innerHTML += `<div id="l${level}-credits-warning"></div>`;
                 container.appendChild(levelTitle);
 
                 // Sort modules by code before displaying
@@ -212,6 +229,15 @@
                     });
             });
 
+            // Level 1 credit warning
+            let credit1WarningDiv = document.getElementById('l1-credits-warning');
+            const credits1 = creditsByLevel[1] || 0;
+            if (credits1 > 120) {
+                credit1WarningDiv.innerHTML = `⚠️ You have selected ${credits1} credits at Level 1. Check that you are not taking more than 120 credits in a year.`;
+            } else {
+                credit1WarningDiv.innerHTML = "";
+            }
+
             // Level 2 term limit warning
             const warningDiv = document.getElementById('l2-modules-warning');
             if (warningDiv) {
@@ -232,6 +258,15 @@
                 warningDiv.innerHTML = warningMsg;
             }
 
+            // Level 2 credit warning
+            let credit2WarningDiv = document.getElementById('l2-credits-warning');
+            const credits2 = creditsByLevel[2] || 0;
+            if (credits2 > 120) {
+                credit2WarningDiv.innerHTML = `⚠️ You have selected ${credits2} credits at Level 2. Check that you are not taking more than 120 credits in a year.`;
+            } else {
+                credit2WarningDiv.innerHTML = "";
+            }
+
             // Level 3 column clash warning
             let column3WarningDiv = document.getElementById('l3-modules-warning');
             const selected3 = modules.filter(
@@ -244,6 +279,15 @@
             }
             column3WarningDiv.innerHTML = clash3Warning;
 
+            // Level 3 credit warning
+            let credit3WarningDiv = document.getElementById('l3-credits-warning');
+            const credits3 = creditsByLevel[3] || 0;
+            if (credits3 > 120) {
+                credit3WarningDiv.innerHTML = `⚠️ You have selected ${credits3} credits at Level 3. Check that you are not taking more than 120 credits in a year.`;
+            } else {
+                credit3WarningDiv.innerHTML = "";
+            }
+
             // Level 4 column clash warning
             let column4WarningDiv = document.getElementById('l4-modules-warning');
             const selected4 = modules.filter(
@@ -255,6 +299,15 @@
                 clash4Warning = `⚠️ You have selected modules marked with more than one letter: <span class='circled'>${selected4Columns.join(', ')}</span>. You may not take modules marked with different letters together.`;
             }
             column4WarningDiv.innerHTML = clash4Warning;
+
+            // Level 4 credit warning
+            let credit4WarningDiv = document.getElementById('l4-credits-warning');
+            const credits4 = creditsByLevel[4] || 0;
+            if (credits4 > 120) {
+                credit4WarningDiv.innerHTML = `⚠️ You have selected ${credits4} credits at Level 4. Check that you are not taking more than 120 credits in a year.`;
+            } else {
+                credit4WarningDiv.innerHTML = "";
+            }
         }
 
         function checkPrereq(prereq, completed, depth = 0) {
