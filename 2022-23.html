@@ -6,7 +6,7 @@
     <title>Mathematics modules</title>
     <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    <link rel="stylesheet" href="styles.css?v=2025-06-08">
+    <link rel="stylesheet" href="styles.css?v=2025-06-21">
     <meta name="viewport" content="width=device-width, initial-scale=0.6">
 </head>
 
@@ -236,26 +236,6 @@
                 credit1WarningDiv.innerHTML = `⚠️ You have selected ${credits1} credits at Level 1. Check that you are not taking more than 120 credits in a year.`;
             } else {
                 credit1WarningDiv.innerHTML = "";
-            }
-
-            // Level 2 term limit warning
-            const warningDiv = document.getElementById('l2-modules-warning');
-            if (warningDiv) {
-                // Count selected Level 2 modules by term
-                const selectedL2 = modules.filter(
-                    m => m.level === 2 && completed.has(m.code)
-                );
-                const countM = selectedL2.filter(m => m.term === 'M').length;
-                const countE = selectedL2.filter(m => m.term === 'E').length;
-
-                let warningMsg = '';
-                if (countM > 3) {
-                    warningMsg += `⚠️ You have selected ${countM} Michaelmas modules (max 3).<br>`;
-                }
-                if (countE > 3) {
-                    warningMsg += `⚠️ You have selected ${countE} Epiphany modules (max 3).<br>`;
-                }
-                warningDiv.innerHTML = warningMsg;
             }
 
             // Level 2 credit warning
