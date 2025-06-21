@@ -144,6 +144,10 @@
 
                         // Replace the last space in the module name with a non-breaking space
                         let moduleName = module.name.replace(/ (\S+)$/, '\u00A0$1');
+                        // If the module is not a MATH module, put the title in italics
+                        if (!module.code || !module.code.startsWith('MATH')) {
+                            moduleName = `<span class='non-maths-module'>${moduleName}</span.>`;
+                        }
                         let html = `<div class='module-code'>${module.code}</div><div class='module-name'>${moduleName}</div>` +
                             prereqDisplay;
 
@@ -343,11 +347,12 @@
             return prereq.map(item => {
                 if (Array.isArray(item)) {
                     const s = prereqToString(item, depth + 1, modules);
-                    // Only add brackets if this is an AND group or if the inner group has more than one element
-                    // if (depth % 2 === 0 && item.length > 1) {
+                    if (item.length === 1 || prereq.length === 1) {
+                        // Single item, no need for parentheses
+                        return s;
+                    }
+                    // Multiple items, wrap in parentheses
                     return `(${s})`;
-                    // }
-                    // return s;
                 } else {
                     // Look up module name
                     const mod = modules.find(m => m.code === item);
