@@ -289,8 +289,13 @@ body {
     color: #c00;
     pointer-events: none;
 }
+
 .exclusion-msg {
     color: #c00;
     font-size: small;
     margin-top: 0.5em;
+}
+
+.non-maths-module {
+    font-style: italic;
 }
