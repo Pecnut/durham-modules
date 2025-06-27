@@ -190,9 +190,18 @@ body {
 #l2-credits-warning,
 #l3-credits-warning,
 #l4-credits-warning {
-    color: #b71c1c;
     font-weight: bold;
     margin: 16px 32px 0 32px;
+}
+
+.credits-low {
+    color: darkorange;
+}
+.credits-ok {
+    color: darkgreen;
+}
+.credits-high {
+    color: #b71c1c;
 }
 
 #entry-switcher {
