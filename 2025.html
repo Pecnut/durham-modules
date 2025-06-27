@@ -238,9 +238,11 @@
             let credit1WarningDiv = document.getElementById('l1-credits-warning');
             const credits1 = creditsByLevel[1] || 0;
             if (credits1 > 120) {
-                credit1WarningDiv.innerHTML = `⚠️ You have selected ${credits1} credits at Level 1. Check that you are not taking more than 120 credits in a year.`;
+                credit1WarningDiv.innerHTML = `<span class="credits-high">⚠️ You have selected ${credits1} credits at Level 1. Check that you are not taking more than 120 credits in a year.</span>`;
+            } else if (credits1 === 120) {
+                credit1WarningDiv.innerHTML = `<span class="credits-ok">✅ You have selected 120 credits at Level 1.</span>`;
             } else {
-                credit1WarningDiv.innerHTML = "";
+                credit1WarningDiv.innerHTML = `<span class="credits-low">You have selected ${credits1} credits at Level 1. Select more modules to reach 120 credits.</span>`;
             }
 
             // Level 2 term limit warning
@@ -267,9 +269,11 @@
             let credit2WarningDiv = document.getElementById('l2-credits-warning');
             const credits2 = creditsByLevel[2] || 0;
             if (credits2 > 120) {
-                credit2WarningDiv.innerHTML = `⚠️ You have selected ${credits2} credits at Level 2. Check that you are not taking more than 120 credits in a year.`;
+                credit2WarningDiv.innerHTML = `<span class="credits-high">⚠️ You have selected ${credits2} credits at Level 2. Check that you are not taking more than 120 credits in a year.</span>`;
+            } else if (credits2 === 120) {
+                credit2WarningDiv.innerHTML = `<span class="credits-ok">✅ You have selected 120 credits at Level 2.</span>`;
             } else {
-                credit2WarningDiv.innerHTML = "";
+                credit2WarningDiv.innerHTML = `<span class="credits-low">You have selected ${credits2} credits at Level 2. Select more modules to reach 120 credits.</span>`;
             }
 
             // Level 3 column clash warning
@@ -288,9 +292,11 @@
             let credit3WarningDiv = document.getElementById('l3-credits-warning');
             const credits3 = creditsByLevel[3] || 0;
             if (credits3 > 120) {
-                credit3WarningDiv.innerHTML = `⚠️ You have selected ${credits3} credits at Level 3. Check that you are not taking more than 120 credits in a year.`;
+                credit3WarningDiv.innerHTML = `<span class="credits-high">⚠️ You have selected ${credits3} credits at Level 3. Check that you are not taking more than 120 credits in a year.</span>`;
+            } else if (credits3 === 120) {
+                credit3WarningDiv.innerHTML = `<span class="credits-ok">✅ You have selected 120 credits at Level 3.</span>`;
             } else {
-                credit3WarningDiv.innerHTML = "";
+                credit3WarningDiv.innerHTML = `<span class="credits-low">You have selected ${credits3} credits at Level 3. Select more modules to reach 120 credits.</span>`;
             }
 
             // Level 4 column clash warning
@@ -309,9 +315,11 @@
             let credit4WarningDiv = document.getElementById('l4-credits-warning');
             const credits4 = creditsByLevel[4] || 0;
             if (credits4 > 120) {
-                credit4WarningDiv.innerHTML = `⚠️ You have selected ${credits4} credits at Level 4. Check that you are not taking more than 120 credits in a year.`;
+                credit4WarningDiv.innerHTML = `<span class="credits-high">⚠️ You have selected ${credits4} credits at Level 4. Check that you are not taking more than 120 credits in a year.</span>`;
+            } else if (credits4 === 120) {
+                credit4WarningDiv.innerHTML = `<span class="credits-ok">✅ You have selected 120 credits at Level 4.</span>`;
             } else {
-                credit4WarningDiv.innerHTML = "";
+                credit4WarningDiv.innerHTML = `<span class="credits-low">You have selected ${credits4} credits at Level 4. Select more modules to reach 120 credits.</span>`;
             }
         }
 
