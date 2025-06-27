@@ -27,6 +27,7 @@
                 href="https://apps.dur.ac.uk/faculty.handbook/2025/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty
                 handbook</a>.
         </p>
+        <p>🕥 Took/taking a year out? This list may not be accurate. Talk to your academic advisor.</p>
         <p>💬 For advice, talk to your academic advisor. For technical issues or feedback on this experimental tool,
             visit the <a href='https://github.com/Pecnut/durham-modules'>GitHub repo</a>.
         </p>
@@ -89,6 +90,7 @@
                 }
                 if (level >= 3) {
                     levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
+                    levelTitle.innerHTML += `<div class='column-info'>Modules and prerequisites for this year are not yet confirmed. This list represents the ‘best guess’ of the department.</div>`;
                     levelTitle.innerHTML += `<div id="l${level}-modules-warning"></div>`;
                 }
                 levelTitle.innerHTML += `<div id="l${level}-credits-warning"></div>`;
