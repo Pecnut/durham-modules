@@ -178,13 +178,19 @@
     },
     {
         "code": "PHYS2611",
-        "name": "Mathematical Methods in Physics II",
+        "name": "Mathematical Methods in Physics",
         "level": 2,
         "prerequisites": []
     },
     {
         "code": "PHYS2631",
-        "name": "Theoretical Physics II",
+        "name": "Theoretical Physics 2",
+        "level": 2,
+        "prerequisites": []
+    },
+    {
+        "code": "PHYS2591",
+        "name": "Foundations of Physics 2B",
         "level": 2,
         "prerequisites": []
     },
@@ -286,6 +292,10 @@
         "theme": "Math Phys",
         "prerequisites": [
             "MATH2741"
+        ],
+        "exclusions": [
+            "PHYS2631",
+            "PHYS3621"
         ]
     },
     {
@@ -442,6 +452,18 @@
         "prerequisites": []
     },
     {
+        "code": "PHYS3631",
+        "name": "Foundations of Physics 3B",
+        "level": 3,
+        "prerequisites": []
+    },
+    {
+        "code": "PHYS3671",
+        "name": "Foundations of Physics 3C",
+        "level": 3,
+        "prerequisites": []
+    },
+    {
         "code": "MATH4431",
         "name": "Advanced Probability IV",
         "level": 4,
@@ -558,12 +580,18 @@
         "theme": "Math Phys",
         "prerequisites": [
             [
+                "MATH2811",
+                "PHYS2611"
+            ],
+            [
                 "MATH2741",
                 "PHYS2631"
             ]
         ],
         "exclusions": [
+            "PHYS2591",
             "PHYS3631",
+            "PHYS3671",
             "PHYS4261"
         ]
     },
@@ -578,6 +606,9 @@
                 "MATH3111",
                 "PHYS2631"
             ]
+        ],
+        "exclusions": [
+            "PHYS4181"
         ]
     },
     {
