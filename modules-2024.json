@@ -103,6 +103,9 @@
                 "MATH1607",
                 "PHYS1122"
             ]
+        ],
+        "exclusions": [
+            "PHYS2631"
         ]
     },
     {
