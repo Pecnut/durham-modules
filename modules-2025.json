@@ -192,12 +192,6 @@
         "prerequisites": []
     },
     {
-        "code": "PHYS2591",
-        "name": "Foundations of Physics 2B",
-        "level": 2,
-        "prerequisites": []
-    },
-    {
         "code": "MATH3CK1",
         "name": "Codes & Knots III",
         "level": 3,
@@ -297,8 +291,7 @@
             "MATH2741"
         ],
         "exclusions": [
-            "PHYS2631",
-            "PHYS3621"
+            "PHYS2631"
         ]
     },
     {
@@ -449,20 +442,8 @@
         "complicated_requisites": true
     },
     {
-        "code": "PHYS3621",
-        "name": "Foundations of Physics 3A",
-        "level": 3,
-        "prerequisites": []
-    },
-    {
         "code": "PHYS3631",
         "name": "Foundations of Physics 3B",
-        "level": 3,
-        "prerequisites": []
-    },
-    {
-        "code": "PHYS3671",
-        "name": "Foundations of Physics 3C",
         "level": 3,
         "prerequisites": []
     },
@@ -592,9 +573,7 @@
             ]
         ],
         "exclusions": [
-            "PHYS2591",
             "PHYS3631",
-            "PHYS3671",
             "PHYS4261"
         ]
     },
