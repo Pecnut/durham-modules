@@ -192,7 +192,7 @@
         "prerequisites": []
     },
     {
-        "code": "MATH3CK1",
+        "code": "MATH3501",
         "name": "Codes & Knots III",
         "level": 3,
         "column": "X",
@@ -212,7 +212,7 @@
         ]
     },
     {
-        "code": "MATH3GG1",
+        "code": "MATH3511",
         "name": "Galois Theory, Groups & Geometry III",
         "level": 3,
         "column": "P",
@@ -223,7 +223,7 @@
         ]
     },
     {
-        "code": "MATH3AT1",
+        "code": "MATH3551",
         "name": "Analysis & Topology III",
         "level": 3,
         "column": "X",
@@ -295,7 +295,7 @@
         ]
     },
     {
-        "code": "MATH3GR1",
+        "code": "MATH3521",
         "name": "General Relativity III",
         "level": 3,
         "column": "A",
@@ -421,7 +421,7 @@
         "complicated_requisites": true
     },
     {
-        "code": "MATH3GP1",
+        "code": "MATH3531",
         "name": "Group Project III",
         "level": 3,
         "column": "X",
@@ -432,12 +432,12 @@
         "complicated_requisites": true
     },
     {
-        "code": "MATH3PR1",
+        "code": "MATH3541",
         "name": "Individual Project III",
         "level": 3,
         "column": "X",
         "prerequisites": [
-            "MATH3GP1"
+            "MATH3531"
         ],
         "complicated_requisites": true
     },
@@ -466,7 +466,7 @@
         "theme": "Probability",
         "prerequisites": [
             "MATH2751",
-            "MATH3AT1"
+            "MATH3551"
         ]
     },
     {
@@ -487,7 +487,7 @@
         "column": "P",
         "theme": "Pure",
         "prerequisites": [
-            "MATH3AT1",
+            "MATH3551",
             "MATH2781"
         ],
         "complicated_requisites": true
@@ -533,7 +533,7 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2811",
-            "MATH3AT1"
+            "MATH3551"
         ]
     },
     {
@@ -618,7 +618,7 @@
         "column": "A",
         "theme": "Math Phys",
         "prerequisites": [
-            "MATH3GR1"
+            "MATH3521"
         ]
     },
     {
