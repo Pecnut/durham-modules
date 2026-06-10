@@ -319,7 +319,7 @@
         "theme": "Math Phys",
         "prerequisites": [
             [
-                "MATH1061/1081",
+                ["MATH1061/1081", "MATH1071/1091"],
                 "MATH1571"
             ]
         ]
@@ -352,6 +352,7 @@
         "column": "X",
         "theme": "Probability",
         "prerequisites": [
+            "MATH1061/1081",
             "MATH1071/1091",
             "MATH1597"
         ]
@@ -477,8 +478,10 @@
         "theme": "Pure",
         "prerequisites": [
             "MATH2791",
-            "MATH2781"
-        ]
+            "MATH2781",
+            "MATH2811"
+        ],
+        "complicated_requisites": true
     },
     {
         "code": "MATH4161",
@@ -487,8 +490,7 @@
         "column": "P",
         "theme": "Pure",
         "prerequisites": [
-            "MATH3551",
-            "MATH2781"
+            "MATH3551"
         ],
         "complicated_requisites": true
     },
@@ -510,8 +512,7 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2781",
-            "MATH1051"
+            "MATH2781"
         ],
         "complicated_requisites": true
     },
@@ -532,7 +533,6 @@
         "column": "X",
         "theme": "Pure",
         "prerequisites": [
-            "MATH2811",
             "MATH3551"
         ]
     },
