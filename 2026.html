@@ -14,7 +14,7 @@
     <div id="header">
         <div class="header-flex">
             <h1>
-                Durham mathematics modules <span class='entry-year'>for 2024 entry</span>
+                Durham mathematics modules <span class='entry-year'>for 2026 entry</span>
             </h1>
             <a href="index.html" class="year-switch-link"><- Choose a different entry year</a>
         </div>
@@ -31,7 +31,6 @@
         <p>💬 For advice, talk to your academic advisor. For technical issues or feedback on this experimental tool,
             visit the <a href='https://github.com/Pecnut/durham-modules'>GitHub repo</a>.
         </p>
-
     </div>
     <div id="modules" class="container"></div>
 
@@ -40,7 +39,7 @@
         let completed = new Set();
 
         // Fetch modules data from external JSON
-        fetch('modules-2024.json')
+        fetch('modules-2026.json')
             .then(response => response.json())
             .then(data => {
                 modules = data;
@@ -81,7 +80,7 @@
 
             // Group by level
             const levels = [...new Set(modules.map(m => m.level))].sort();
-            const level_unconfirmed = 4; // Levels >= this may have unconfirmed modules/prerequisites
+            const level_unconfirmed = 2; // Levels >= this may have unconfirmed modules/prerequisites
             levels.forEach(level => {
                 const levelTitle = document.createElement('div');
                 levelTitle.className = 'level-title';
@@ -379,6 +378,7 @@
             }).join(sep);
         }
     </script>
+
 
     <a class="github-link" href="https://github.com/Pecnut/durham-modules" target="_blank" rel="noopener"> View
         this project on GitHub </a>

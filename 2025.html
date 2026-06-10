@@ -20,11 +20,11 @@
         </div>
         <p>✅ Select modules you have completed or would like to take. Modules are unlocked when you take their pre- or
             co-requisites.</p>
-        <p>👉 Check <a href='https://apps.dur.ac.uk/faculty.handbook/2025/UG/department/Mathematical%20Sciences'>your
+        <p>👉 Check <a href='https://apps.dur.ac.uk/faculty.handbook/2026/UG/department/Mathematical%20Sciences'>your
                 degree
                 programme</a> for constraints on the modules that you must or can take.
-            <span class='dagger'>&dagger;</span>Full details of 2025–26 modules are in the <a
-                href="https://apps.dur.ac.uk/faculty.handbook/2025/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty
+            <span class='dagger'>&dagger;</span>Full details of 2026–27 modules are in the <a
+                href="https://apps.dur.ac.uk/faculty.handbook/2026/UG/search?module=math&keywords=&department=&type=&level=&credits=">faculty
                 handbook</a>.
         </p>
         <p>🕥 Took/taking a year out? This list may not be accurate. Talk to your academic advisor.</p>
@@ -80,17 +80,21 @@
 
             // Group by level
             const levels = [...new Set(modules.map(m => m.level))].sort();
+            const level_unconfirmed = 3; // Levels >= this may have unconfirmed modules/prerequisites
             levels.forEach(level => {
                 const levelTitle = document.createElement('div');
                 levelTitle.className = 'level-title';
                 levelTitle.textContent = `Level ${level}`;
                 if (level == 2) {
                     levelTitle.innerHTML += `<div class='column-info'>Modules run either in Michaelmas <span class='squared'>M</span> or Epiphany <span class='squared'>E</span>. No more than three modules can be taken in a term.</div>`;
-                    levelTitle.innerHTML += `<div id="l2-modules-warning"></div>`;
                 }
                 if (level >= 3) {
                     levelTitle.innerHTML += `<div class='column-info'>Modules marked <span class='circled'>A</span>, <span class='circled'>P</span>, <span class='circled'>R</span> or <span class='circled'>S</span> may not be taken with any module marked with a different letter.</div>`;
+                }
+                if (level >= level_unconfirmed) {
                     levelTitle.innerHTML += `<div class='column-info'>Modules and prerequisites for this year are not yet confirmed. This list represents the ‘best guess’ of the department.</div>`;
+                }
+                if (level >= 1){
                     levelTitle.innerHTML += `<div id="l${level}-modules-warning"></div>`;
                 }
                 levelTitle.innerHTML += `<div id="l${level}-credits-warning"></div>`;
